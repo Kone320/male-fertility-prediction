@@ -1,0 +1,16 @@
+cat > .gitignore << 'EOF'
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+.env
+.DS_Store
+.idea/
+.vscode/
+*.joblib
+data/*
+!data/.gitkeep
+models/*
+!models/.gitkeep
+EOF
