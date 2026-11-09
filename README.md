@@ -48,7 +48,7 @@ Le diagnostic repose sur des examens biologiques, notamment l'analyse du sperme.
 | `hrs_sitting` | quasi-continue | 0 à 1, soit 0 à 16 h par jour | Heures observées : 1 à 16, valeurs entières (moyenne 6,5) |
 | `diagnosis` | cible | N normal, O altéré | Déséquilibre 88 / 12 |
 
-## 🧪 Méthodologie
+##  Méthodologie
 
 1. Chargement via `ucimlrepo` et audit qualité (valeurs manquantes, types, valeurs uniques)
 2. Dictionnaire sémantique et reconversion en unités réelles (années, heures)
@@ -59,7 +59,7 @@ Le diagnostic repose sur des examens biologiques, notamment l'analyse du sperme.
 7. Optimisation par `GridSearchCV` (54 combinaisons) sur le GradientBoosting, critère AUC-ROC
 8. Évaluation hold-out 80/20, importance des variables et SHAP sur le modèle final entraîné sur les 100 individus
 
-## 📈 Résultats clés
+##  Résultats clés
 
 Validation croisée stratifiée, 5 folds, moyennes :
 
@@ -78,7 +78,7 @@ Validation croisée stratifiée, 5 folds, moyennes :
 - **Hold-out (20 individus dont 2 positifs) :** exactitude 0,900, balanced accuracy 0,500, recall 0, AUC 0,417. Le modèle prédit « Normal » pour les 20 individus. Résultat non concluant, mais il ne confirme pas la validation croisée.
 - **Importance des variables (impureté, modèle final) :** `hrs_sitting` ≈ 0,32, `accident` ≈ 0,22, `age` ≈ 0,22, `season` ≈ 0,11, `high_fevers` ≈ 0,06, `alcohol` ≈ 0,05, les trois autres variables ≈ 0.
 
-## 🖼️ Visualisations et lecture
+## Visualisations et lecture
 
 ![Distribution de la cible](assets/01_target_distribution.png)
 *Figure 1. Répartition de la cible (88 Normal, 12 Altéré).*
@@ -134,7 +134,7 @@ Ces explications décrivent le modèle sur ses propres données d'entraînement,
 - **Compromis du seuil :** la régression logistique détecte la moitié des cas altérés (recall 0,50) avec une précision d'environ 0,21. Tout outil réel devra choisir un seuil selon le coût d'un faux négatif et d'un faux positif.
 - **Le spermogramme reste la référence.** Ces résultats servent à formuler des hypothèses pour une étude plus large, pas à orienter un patient.
 
-## ⚠️ Limites et pistes d'amélioration
+## Limites et pistes d'amélioration
 
 - **Taille :** n = 100 dont 12 positifs, variance très élevée. Validation externe indispensable.
 - **Sélection optimiste :** l'AUC de 0,710 n'est pas une performance de généralisation. Piste : validation croisée imbriquée et validation croisée répétée avec écarts-types [6].
@@ -145,7 +145,7 @@ Ces explications décrivent le modèle sur ses propres données d'entraînement,
 - **Importance :** par impureté, donc biaisée [7]. Piste : importance par permutation, évaluée en validation croisée.
 - **Population :** 27 à 36 ans, aucune donnée biologique. Aucune extrapolation hors de cette tranche.
 
-## 🗂️ Structure du dépôt
+## Structure du dépôt
 
 ```
 male-fertility-prediction/
@@ -170,7 +170,7 @@ male-fertility-prediction/
         test_predict.py
 ```
 
-## 🚀 Reproduction
+##  Reproduction
 
 ```bash
 git clone https://github.com/Kone320/male-fertility-prediction.git
@@ -184,7 +184,7 @@ python -m pytest
 
 Les données sont téléchargées automatiquement par `ucimlrepo` (connexion nécessaire à la première exécution).
 
-## 📚 Références
+##  Références
 
 1. Organisation mondiale de la santé (2023). *1 in 6 people globally affected by infertility*. [who.int](https://www.who.int/news/item/04-04-2023-1-in-6-people-globally-affected-by-infertility)
 2. Agarwal A., Mulgund A., Hamada A., Chyatte M.R. (2015). A unique view on male infertility around the globe. *Reproductive Biology and Endocrinology*, 13:37. [doi:10.1186/s12958-015-0032-1](https://doi.org/10.1186/s12958-015-0032-1)
@@ -207,7 +207,7 @@ Citation du jeu de données :
 }
 ```
 
-## 📄 Licence et contact
+##  Licence et contact
 
 
 Auteur du dépôt : [Kone320](https://github.com/Kone320) sur GitHub.
